@@ -1,0 +1,23 @@
+#Title {
+    transform-origin: top;
+    font-size: 248px;
+    -unity-text-align: middle-center;
+}
+
+#MainMenuItems {
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.menu-button {
+    margin-top: 50px;
+    font-size: 75px;
+    width: 50%;
+    transition-duration: .2s;
+}
+
+.menu-button:hover{
+    width: 75%;
+    font-size: 100px;
+}

@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/UiElements/Editor/Custom%20Inspector/Car_Inspector_USS.uss?fileID=7433441132597879392&amp;guid=858093e82c0763746ae8e22b350f7ab0&amp;type=3#Car_Inspector_USS" />
+    <ui:Label text="Hello World! From UXML" name="title" />
+    <ui:VisualElement>
+        <ui:Button text="Show All Scriptable Object" display-tooltip-when-elided="true" name="so-btn" style="-unity-text-align: middle-center;" />
+        <ui:Button text="Show All Hierarchy Objects" display-tooltip-when-elided="true" name="hierarchy" />
+        <ui:Button text="Button" display-tooltip-when-elided="true" name="so-window" />
+        <ui:ScrollView />
+        <ui:GroupBox name="GroupBox" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UiElements/USS/TestUSS.uss?fileID=7433441132597879392&amp;guid=1062c3c21a93daa4497295774f755d07&amp;type=3#TestUSS" />
+    <ui:VisualElement>
+        <ui:Label text="UXML Game" display-tooltip-when-elided="true" name="Title" />
+        <ui:VisualElement name="MainMenuItems" style="flex-direction: column; align-items: center; justify-content: flex-start;">
+            <ui:Button text="Start" display-tooltip-when-elided="true" name="Start" class="menu-button" />
+            <ui:Button text="Options" display-tooltip-when-elided="true" name="Options" class="menu-button" />
+            <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" class="menu-button" style="-unity-text-align: middle-center;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement />
+</ui:UXML>

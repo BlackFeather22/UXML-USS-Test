@@ -1,0 +1,52 @@
+#title {
+    font-size: 300%;
+    -unity-text-align: middle-center;
+    color: rgba(0, 190, 255, 255);
+    -unity-font-style: normal;
+}
+
+Button {
+    width: 50%;
+    height: 20px;
+    transition-duration: 0.163s;
+    margin: auto;
+    margin-top: 5px;
+    transition-property: all;
+}
+
+Button:hover {
+    width: 75%;
+    height: 30px;
+}
+
+Button:active {
+    width: 100%;
+    height: 40px;
+    background-color: red;
+}
+
+TextField {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#Color {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.object-title {
+    font-size: 200%;
+    -unity-text-align: middle-center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: rgba(255, 126, 126, 255);
+}
+
+.scriptable-obj {
+    color: rgba(195, 115, 8, 255);
+}

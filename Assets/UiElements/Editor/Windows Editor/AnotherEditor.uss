@@ -1,0 +1,28 @@
+Label {
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: rgb(68, 138, 255);
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+
+Button{
+    width: 50%;
+    height: 20px;
+    transition-duration: .163s;
+    margin: auto;
+    margin-top: 5px;
+    
+}
+
+Button:hover{
+    width: 75%;
+    height: 30px;
+}
+
+Button:active{
+    width: 100%;
+    height: 40px;
+    background-color: red;
+}
