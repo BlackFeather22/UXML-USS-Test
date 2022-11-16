@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UiElements/Editor/Custom%20Inspector/Dictionary/Dictionary.uss?fileID=7433441132597879392&amp;guid=315e9cd8a1dc44a528de12882c551a6f&amp;type=3#Dictionary" />
+    <ui:Label text="Hello World! From UXML" />
+    <ui:VisualElement>
+        <ui:ListView focusable="true" binding-path="keys" name="keysList" />
+        <ui:ListView focusable="true" binding-path="values" name="valuesList" />
+        <ui:Button text="Third" display-tooltip-when-elided="true" name="addNewKey" />
+        <ui:IMGUIContainer />
+    </ui:VisualElement>
+</ui:UXML>
