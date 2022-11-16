@@ -1,10 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UiElements/Editor/Custom%20Inspector/Dictionary/Dictionary.uss?fileID=7433441132597879392&amp;guid=315e9cd8a1dc44a528de12882c551a6f&amp;type=3#Dictionary" />
     <ui:Label text="Hello World! From UXML" />
-    <ui:VisualElement>
-        <ui:ListView focusable="true" binding-path="keys" name="keysList" />
-        <ui:ListView focusable="true" binding-path="values" name="valuesList" />
-        <ui:Button text="Third" display-tooltip-when-elided="true" name="addNewKey" />
-        <ui:IMGUIContainer />
+    <ui:VisualElement style="flex-direction: row; justify-content: space-between;">
+        <ui:ListView focusable="true" binding-path="dictionary.keys" name="keysList" show-foldout-header="false" show-add-remove-footer="false" reorderable="true" horizontal-scrolling="true" show-bound-collection-size="false" header-title="Keys" reorder-mode="Animated" show-alternating-row-backgrounds="ContentOnly" virtualization-method="DynamicHeight" show-border="true" fixed-item-height="30" selection-type="None" usage-hints="None" />
+        <ui:ListView focusable="true" binding-path="dictionary.values" name="valuesList" horizontal-scrolling="true" reorderable="false" show-bound-collection-size="false" show-foldout-header="false" header-title="Values" reorder-mode="Animated" show-alternating-row-backgrounds="ContentOnly" virtualization-method="DynamicHeight" show-border="true" selection-type="None" usage-hints="None" />
     </ui:VisualElement>
+    <ui:Button text="Add Key" display-tooltip-when-elided="true" name="Add" usage-hints="DynamicColor" style="padding-top: 10px; padding-bottom: 10px;" />
+    <ui:Button text="Remove Key" display-tooltip-when-elided="true" name="Remove" usage-hints="DynamicColor" style="margin-top: 10px; padding-bottom: 10px; padding-top: 10px;" />
 </ui:UXML>

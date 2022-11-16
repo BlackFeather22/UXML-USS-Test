@@ -1,0 +1,15 @@
+.unity-list-view .unity-label {
+	width: 100px;
+}
+
+.unity-list-view .unity-text-element {
+	width: 100px;
+}
+
+.unity-list-view .unity-property-field__label {
+	width: 100px;
+}
+
+.unity-list-view Label {
+	width: 500px;
+}

@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine.UIElements;
 
 
-[CustomEditor(typeof(Car))]
+[CustomEditor(typeof(Test))]
 public class DictionaryInspector : Editor
 {
     public VisualTreeAsset m_InspectorXML;
@@ -17,6 +17,20 @@ public class DictionaryInspector : Editor
 
         // Load and clone a visual tree from UXML
         m_InspectorXML.CloneTree(myInspector);
+
+        myInspector.Q<Button>("Add").clickable.clicked += () =>
+        {
+            var dictionary = serializedObject.FindProperty("dictionary.keys");
+            dictionary.arraySize++;
+            serializedObject.ApplyModifiedProperties();
+        };
+
+        myInspector.Q<Button>("Remove").clickable.clicked += () =>
+        {
+            var dictionary = serializedObject.FindProperty("dictionary.keys");
+            dictionary.arraySize--;
+            serializedObject.ApplyModifiedProperties();
+        };
 
         // Return the finished inspector UI
         return myInspector;
