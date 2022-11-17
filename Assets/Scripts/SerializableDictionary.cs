@@ -4,16 +4,18 @@ using UnityEngine;
 [System.Serializable]
 public class SerializableDictionary<TKey,TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
 {
+    protected TKey defaultKey;
+    protected TValue defaultValue;
+
     [SerializeField]
     private List<TKey> keys = new List<TKey>();
 
     [SerializeField]
     private List<TValue> values = new List<TValue>();
 
-    TKey defaultKey;
-    TValue defaultValue;
 
-    public void OnBeforeSerialize()
+
+    public virtual void OnBeforeSerialize()
     {
         keys.Clear();
         values.Clear();
@@ -24,7 +26,7 @@ public class SerializableDictionary<TKey,TValue> : Dictionary<TKey, TValue>, ISe
         }
     }
 
-    public void OnAfterDeserialize()
+    public virtual void OnAfterDeserialize()
     {
         this.Clear();
 
@@ -34,7 +36,7 @@ public class SerializableDictionary<TKey,TValue> : Dictionary<TKey, TValue>, ISe
             {
                 if(keys.FindAll((key)=> Equals(key,defaultKey)).Count > 1)
                 {
-                    Debug.LogError("Please repalce or remove the default key in the dictionary");
+                    Debug.LogWarning("Please replace or remove the default key in the dictionary");
                     keys.RemoveAt(keys.Count - 1);
                     break;
                 }
@@ -56,4 +58,19 @@ public class SerializableDictionary<TKey,TValue> : Dictionary<TKey, TValue>, ISe
 }
 
 [System.Serializable]
-public class Dictionary_GameObject_GameObject: SerializableDictionary<GameObject, GameObject> { }
+public class Dictionary_GameObject_GameObject: SerializableDictionary<GameObject, GameObject> {
+
+    GameObject defaultKeyAndValue = null;
+
+    public override void OnAfterDeserialize()
+    {
+        defaultKey = defaultKeyAndValue;
+        defaultValue = defaultKeyAndValue;
+        base.OnAfterDeserialize();
+    }
+}
+
+[System.Serializable]
+public class Dictionary_ints : SerializableDictionary<int, int>
+{
+}

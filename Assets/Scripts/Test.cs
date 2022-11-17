@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] private List<int> intList = new();
-    [SerializeField] Dictionary_GameObject_GameObject dictionary;
+    [NewMonoBehaviour] public Dictionary_ints dict_iny;
 }

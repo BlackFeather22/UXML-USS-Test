@@ -360,17 +360,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b44a4d993f104ccda062d6a3a14ab07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intList: 040000007b00000022000000ea000000
   dictionary:
     keys:
     - {fileID: 519420028}
-    - {fileID: 1181829897}
-    - {fileID: 325173380}
     - {fileID: 1468448563}
     - {fileID: 0}
     values:
-    - {fileID: 0}
-    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}

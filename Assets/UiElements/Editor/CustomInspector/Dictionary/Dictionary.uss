@@ -1,0 +1,3 @@
+.unity-list-view__item .unity-property-field__label{
+    display:none;
+}
