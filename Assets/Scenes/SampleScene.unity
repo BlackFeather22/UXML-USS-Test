@@ -369,23 +369,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dict_iny:
-  - defaultKey: 0
+  - defaultKey: 8
     defaultValue: 0
-    keys: 00000000
-    values: 00000000
+    keys: 020000000b00000039010000000000007f9698000f270000
+    values: 0f2700006200000062000000121e0000010300006c030000
   - defaultKey: 0
     defaultValue: 0
     keys: 00000000
     values: 00000000
   dict_GameObject:
-  - defaultKey: {fileID: 0}
+  - defaultKey: {fileID: 325173380}
     defaultValue: {fileID: 0}
-    keys: []
-    values: []
-  - defaultKey: {fileID: 0}
-    defaultValue: {fileID: 0}
-    keys: []
-    values: []
+    keys:
+    - {fileID: 325173380}
+    values:
+    - {fileID: 0}
 --- !u!4 &1468448565
 Transform:
   m_ObjectHideFlags: 0

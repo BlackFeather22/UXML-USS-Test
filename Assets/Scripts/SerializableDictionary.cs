@@ -58,19 +58,7 @@ public class SerializableDictionary<TKey,TValue> : Dictionary<TKey, TValue>, ISe
 }
 
 [System.Serializable]
-public class Dictionary_GameObject_GameObject: SerializableDictionary<GameObject, GameObject> {
-
-    GameObject defaultKeyAndValue = null;
-
-    public override void OnAfterDeserialize()
-    {
-        defaultKey = defaultKeyAndValue;
-        defaultValue = defaultKeyAndValue;
-        base.OnAfterDeserialize();
-    }
-}
+public class Dictionary_GameObject_GameObject: SerializableDictionary<GameObject, GameObject> {}
 
 [System.Serializable]
-public class Dictionary_ints : SerializableDictionary<int, int>
-{
-}
+public class Dictionary_ints : SerializableDictionary<int, int>{}
