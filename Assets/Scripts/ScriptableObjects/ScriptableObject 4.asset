@@ -23,4 +23,5 @@ MonoBehaviour:
   sdfggdgdgdg: {x: 0, y: 0, z: 0}
   sdfdsgsdgsgs: {x: 0, y: 0, z: 0}
   ssfsfsfsfsfsf: {x: 0, y: 0, z: 0, w: 0}
-  hahfffahaha: []
+  hahfffahaha:
+  - 0
