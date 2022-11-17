@@ -1,21 +1,15 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <Style src="project://database/Assets/UIToolkit/Editor/Inspectors/Dictionary/Dictionary.uss?fileID=7433441132597879392&amp;guid=315e9cd8a1dc44a528de12882c551a6f&amp;type=3#Dictionary" />
-    <ui:VisualElement name="DefaultPropertiesSection" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; flex-shrink: 10; align-self: center; align-items: center; padding-bottom: 10px;">
-        <ui:VisualElement name="DefaultKey" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: flex-start; align-items: center;">
-            <ui:Label tabindex="-1" text="Default Key" display-tooltip-when-elided="true" />
-            <uie:PropertyField binding-path="defaultKey" name="DefaultKeyField" label="Default Key" />
+    <ui:VisualElement usage-hints="-1" focusable="true" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); padding-top: 10px; padding-bottom: 10px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgb(82, 82, 82); border-right-color: rgb(82, 82, 82); border-top-color: rgb(82, 82, 82); border-bottom-color: rgb(82, 82, 82); padding-right: 10px; padding-left: 10px;">
+        <uie:PropertyField binding-path="defaultKey" name="DefaultKeyField" label="Default Key" />
+        <uie:PropertyField binding-path="defaultValue" name="DefaultValueField" label="Default Value" style="padding-bottom: 10px;" />
+        <ui:VisualElement name="ListsSection" style="flex-direction: row; justify-content: space-around; flex-grow: 1;">
+            <ui:ListView focusable="true" binding-path="keys" name="keysList" show-foldout-header="true" show-add-remove-footer="false" reorderable="true" horizontal-scrolling="false" show-bound-collection-size="false" header-title="Keys" reorder-mode="Animated" show-alternating-row-backgrounds="ContentOnly" virtualization-method="DynamicHeight" show-border="true" fixed-item-height="30" selection-type="None" usage-hints="None" />
+            <ui:ListView focusable="true" binding-path="values" name="valuesList" horizontal-scrolling="false" reorderable="false" show-bound-collection-size="false" show-foldout-header="true" header-title="Values" reorder-mode="Animated" show-alternating-row-backgrounds="ContentOnly" virtualization-method="DynamicHeight" show-border="true" selection-type="None" usage-hints="None" />
         </ui:VisualElement>
-        <ui:VisualElement name="DefaultValue" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: flex-start; align-items: flex-end;">
-            <ui:Label tabindex="-1" text="Default Value" display-tooltip-when-elided="true" />
-            <uie:PropertyField binding-path="defaultValue" name="DefaultValueField" label="Default Value" />
+        <ui:VisualElement name="ActionButtonsSection" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:Button text="Add Key" display-tooltip-when-elided="true" name="Add" usage-hints="None" style="padding-top: 10px; padding-bottom: 10px;" />
+            <ui:Button text="Remove Key" display-tooltip-when-elided="true" name="Remove" usage-hints="None" style="margin-top: 10px; padding-bottom: 10px; padding-top: 10px;" />
         </ui:VisualElement>
-    </ui:VisualElement>
-    <ui:VisualElement name="ListsSection" style="flex-direction: row; justify-content: space-around; flex-grow: 1;">
-        <ui:ListView focusable="true" binding-path="keys" name="keysList" show-foldout-header="true" show-add-remove-footer="false" reorderable="true" horizontal-scrolling="false" show-bound-collection-size="false" header-title="Keys" reorder-mode="Animated" show-alternating-row-backgrounds="ContentOnly" virtualization-method="DynamicHeight" show-border="true" fixed-item-height="30" selection-type="None" usage-hints="None" />
-        <ui:ListView focusable="true" binding-path="values" name="valuesList" horizontal-scrolling="false" reorderable="false" show-bound-collection-size="false" show-foldout-header="true" header-title="Values" reorder-mode="Animated" show-alternating-row-backgrounds="ContentOnly" virtualization-method="DynamicHeight" show-border="true" selection-type="None" usage-hints="None" />
-    </ui:VisualElement>
-    <ui:VisualElement name="ActionButtonsSection" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
-        <ui:Button text="Add Key" display-tooltip-when-elided="true" name="Add" usage-hints="None" style="padding-top: 10px; padding-bottom: 10px;" />
-        <ui:Button text="Remove Key" display-tooltip-when-elided="true" name="Remove" usage-hints="None" style="margin-top: 10px; padding-bottom: 10px; padding-top: 10px;" />
     </ui:VisualElement>
 </ui:UXML>

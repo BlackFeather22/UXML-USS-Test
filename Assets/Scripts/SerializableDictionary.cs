@@ -62,3 +62,6 @@ public class Dictionary_GameObject_GameObject: SerializableDictionary<GameObject
 
 [System.Serializable]
 public class Dictionary_ints : SerializableDictionary<int, int>{}
+
+[System.Serializable]
+public class Dictionary_Int_Color : SerializableDictionary<int, Color> { }

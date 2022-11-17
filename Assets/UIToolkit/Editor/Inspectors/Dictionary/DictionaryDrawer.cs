@@ -6,7 +6,8 @@ using System.ComponentModel;
 
 [CustomPropertyDrawer(typeof(Dictionary_ints))]
 [CustomPropertyDrawer(typeof(Dictionary_GameObject_GameObject))]
-//[CustomPropertyDrawer(typeof(NewMonoBehaviour))]
+[CustomPropertyDrawer(typeof(Dictionary_Int_Color))]
+//[CustomPropertyDrawer(typeof(NewMonoBehaviour))] This works also for properies
 public class DictionaryDrawer : PropertyDrawer
 {
     readonly string path = "Assets/UIToolkit/Editor/Inspectors/Dictionary/Dictionary.uxml";
