@@ -4,8 +4,8 @@ using UnityEngine;
 [System.Serializable]
 public class SerializableDictionary<TKey,TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
 {
-    protected TKey defaultKey;
-    protected TValue defaultValue;
+    [SerializeField] protected TKey defaultKey;
+    [SerializeField] protected TValue defaultValue;
 
     [SerializeField]
     private List<TKey> keys = new List<TKey>();
@@ -28,7 +28,7 @@ public class SerializableDictionary<TKey,TValue> : Dictionary<TKey, TValue>, ISe
 
     public virtual void OnAfterDeserialize()
     {
-        this.Clear();
+        Clear();
 
         while(keys.Count != values.Count)
         {
@@ -50,7 +50,7 @@ public class SerializableDictionary<TKey,TValue> : Dictionary<TKey, TValue>, ISe
 
         for (int i = 0; i < keys.Count; i++)
         {
-            this.Add(keys[i], values[i]);
+            Add(keys[i], values[i]);
         }
 
     }
