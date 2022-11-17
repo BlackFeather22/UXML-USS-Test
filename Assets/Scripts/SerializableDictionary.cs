@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,10 +14,13 @@ public class SerializableDictionary<TKey,TValue> : Dictionary<TKey, TValue>, ISe
     [SerializeField]
     private List<TValue> values = new List<TValue>();
 
+    private bool isTyping;
 
 
     public virtual void OnBeforeSerialize()
     {
+        if(isTyping) return;
+
         keys.Clear();
         values.Clear();
         foreach (KeyValuePair<TKey,TValue> pair in this)
@@ -34,24 +38,29 @@ public class SerializableDictionary<TKey,TValue> : Dictionary<TKey, TValue>, ISe
         {
             if(keys.Count > values.Count)
             {
-                if(keys.FindAll((key)=> Equals(key,defaultKey)).Count > 1)
-                {
-                    Debug.LogWarning("Please replace or remove the default key in the dictionary");
-                    keys.RemoveAt(keys.Count - 1);
-                    break;
-                }
-
-                keys[keys.Count - 1] = defaultKey;
+                keys[^1] = defaultKey;
                 values.Add(defaultValue);
             }
             else if (keys.Count < values.Count)
                 values.RemoveAt(values.Count - 1);
         }
 
-        for (int i = 0; i < keys.Count; i++)
+        try
         {
-            Add(keys[i], values[i]);
+            for (int i = 0; i < keys.Count; i++)
+            {
+                Add(keys[i], values[i]);
+            }
+
+            isTyping = false;
         }
+        catch
+        {
+            isTyping = true;
+            Debug.LogWarning(
+                "There is a duplicate key in the dictionary.\nreplace the duplicate key to avoid unexpected behaviour.");
+        }
+
 
     }
 
