@@ -1,7 +1,6 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 using UnityEngine.UIElements;
-using System.ComponentModel;
 
 
 [CustomPropertyDrawer(typeof(Dictionary_ints))]
@@ -15,21 +14,23 @@ public class DictionaryDrawer : PropertyDrawer
     public override VisualElement CreatePropertyGUI(SerializedProperty property)
     {
         VisualElement myInspector = new VisualElement();
-        
+
+        new Rigidbody();
+
         var vsTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(path);
         vsTree.CloneTree(myInspector);
 
+        var keysList = property.FindPropertyRelative("keys");
+
         myInspector.Q<Button>("Add").clickable.clicked += () =>
         {
-            var dictionary = property.FindPropertyRelative("keys");
-            dictionary.arraySize++;
+            keysList.arraySize++;
             property.serializedObject.ApplyModifiedProperties();
         };
 
         myInspector.Q<Button>("Remove").clickable.clicked += () =>
         {
-            var dictionary = property.FindPropertyRelative("keys");
-            if(dictionary.arraySize > 0) dictionary.arraySize--;
+            if(keysList.arraySize > 0) keysList.arraySize--;
             property.serializedObject.ApplyModifiedProperties();
         };
 
