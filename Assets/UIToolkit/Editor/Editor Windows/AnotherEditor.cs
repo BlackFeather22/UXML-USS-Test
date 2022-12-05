@@ -21,7 +21,7 @@ public class AnotherEditor : EditorWindow
         VisualElement root = rootVisualElement;
 
         // Import UXML
-        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UIToolkit/Editor/Windows/AnotherEditor.uxml");
+        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UIToolkit/Editor/Editor Windows/AnotherEditor.uxml");
         editorWindowUI = visualTree.Instantiate();
 
         editorWindowUI.Q<Button>("so-btn").clicked += showScriptableObjects;

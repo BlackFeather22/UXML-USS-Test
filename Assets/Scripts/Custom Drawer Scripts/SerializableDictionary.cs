@@ -57,7 +57,7 @@ public class SerializableDictionary<TKey,TValue> : Dictionary<TKey, TValue>, ISe
         catch
         {
             isTyping = true;
-            Debug.LogWarning(
+            Debug.LogError(
                 "There is a duplicate key in the dictionary.\nreplace the duplicate key to avoid unexpected behaviour.");
         }
 
