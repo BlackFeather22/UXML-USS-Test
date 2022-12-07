@@ -3,11 +3,12 @@ using UnityEngine.UIElements;
 
 namespace UI_Manager
 {
+    [RequireComponent(typeof(UIDocument))]
     public abstract class UIWindow : MonoBehaviour
     {
         public static string WindowName;
         
-        [SerializeField] private UIDocument uiDocument;
+        [SerializeField] protected UIDocument uiDocument;
         private void Awake()
         {
             WindowName = GetType().Name;
@@ -28,9 +29,21 @@ namespace UI_Manager
             }
         }
 
+        public void EnableUI()
+        {
+            uiDocument.enabled = true;
+            this.enabled = true;
+        }
+
+        public void DisableUI()
+        {
+            uiDocument.enabled = false;
+            this.enabled = false;
+        }
+
         public abstract void PlayOpenAnimation();
         public abstract void PlayCloseAnimation();
-        
+
 
     }
 }

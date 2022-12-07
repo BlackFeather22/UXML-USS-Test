@@ -348,7 +348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1468448565}
-  - component: {fileID: 1468448564}
+  - component: {fileID: 1468448566}
   m_Layer: 0
   m_Name: Dictionary Test
   m_TagString: Untagged
@@ -356,42 +356,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1468448564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1468448563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b44a4d993f104ccda062d6a3a14ab07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dict_iny:
-    defaultKey: 0
-    defaultValue: 0
-    keys: 070000000000000008000000
-    values: 000000000000000000000000
-  dict_GameObject:
-    defaultKey: {fileID: 0}
-    defaultValue: {fileID: 0}
-    keys:
-    - {fileID: 0}
-    - {fileID: 0}
-    values:
-    - {fileID: 0}
-    - {fileID: 0}
-  dic_Color:
-    defaultKey: 0
-    defaultValue: {r: 0, g: 0, b: 0, a: 0}
-    keys: 0200000082860000298600001700000000000000
-    values:
-    - {r: 0, g: 0, b: 0, a: 0}
-    - {r: 0, g: 0, b: 0, a: 0}
-    - {r: 0, g: 0, b: 0, a: 0}
-    - {r: 0, g: 0, b: 0, a: 0}
-    - {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1468448565
 Transform:
   m_ObjectHideFlags: 0
@@ -407,3 +371,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1468448566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468448563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae93e16019384e0a977d96a038c6354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dict_iny:
+    defaultKey: 0
+    defaultValue: 0
+    keys: 
+    values: 
+  dict_GameObject:
+    defaultKey: {fileID: 0}
+    defaultValue: {fileID: 0}
+    keys: []
+    values: []
+  dic_Color:
+    defaultKey: 0
+    defaultValue: {r: 0, g: 0, b: 0, a: 0}
+    keys: 
+    values: []
