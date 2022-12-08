@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIToolkit/Runtime/USS/MainMenu.uss?fileID=7433441132597879392&amp;guid=1062c3c21a93daa4497295774f755d07&amp;type=3#MainMenu" />
-    <ui:VisualElement>
+    <ui:VisualElement name="root">
         <ui:Label text="Options Menu" display-tooltip-when-elided="true" name="Title" />
         <ui:VisualElement name="Items" style="flex-direction: column; align-items: center; justify-content: flex-start;">
             <ui:Button text="Audio" display-tooltip-when-elided="true" name="Audio" class="menu-button" />

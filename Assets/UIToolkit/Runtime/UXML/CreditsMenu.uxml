@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIToolkit/Runtime/USS/MainMenu.uss?fileID=7433441132597879392&amp;guid=1062c3c21a93daa4497295774f755d07&amp;type=3#MainMenu" />
+    <ui:VisualElement name="root">
+        <ui:Label text="Credits Menu" display-tooltip-when-elided="true" name="Title" />
+        <ui:VisualElement name="Items" style="flex-direction: column; align-items: center; justify-content: flex-start;">
+            <ui:Label tabindex="-1" text="Programmer: Mojtaba Almiskeen&#10;Designer: Mojtaba Almiskeen&#10;Artest: None" display-tooltip-when-elided="true" style="width: 1000px; height: 300px; -unity-font: url(&apos;project://database/Assets/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=f2be570f2782f43998723d1b19decc53&amp;type=3#NotInter-Regular&apos;); font-size: 50px;" />
+            <ui:Button text="MainMenu" display-tooltip-when-elided="true" name="MainMenu" class="menu-button" style="-unity-text-align: middle-center;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement />
+</ui:UXML>

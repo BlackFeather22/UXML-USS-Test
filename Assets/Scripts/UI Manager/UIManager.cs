@@ -1,6 +1,5 @@
-using System;
 using System.Collections.Generic;
-using UnityEditor.PackageManager.UI;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace UI_Manager
@@ -18,7 +17,6 @@ namespace UI_Manager
 
         public void OpenStartingWindow()
         {
-            _openWindow = startingWindow;
             if(startingWindow) OpenWindow(startingWindow);
             else
             {
@@ -29,12 +27,22 @@ namespace UI_Manager
         
         public void OpenWindow(UIWindow uiWindow)
         {
-            CloseCurrentWindow();
+            OpenWindowAsync(uiWindow.TypeName);
+        }
+        
+        public void OpenWindow(string uiWindowName)
+        {
+            OpenWindowAsync(uiWindowName);
+        }
+        
+        public async Task OpenWindowAsync(UIWindow uiWindow)
+        {
+            await CloseCurrentWindowAsync();
 
-            if (UIWindows.TryGetValue(uiWindow.GetType().Name, out var window))
+            if (UIWindows.TryGetValue(uiWindow.TypeName, out var window))
             {
                 _openWindow = window;
-                window.PlayOpenAnimation();
+                await window.OpenWindowAsync();
             }
             else
             {
@@ -43,14 +51,14 @@ namespace UI_Manager
             }
         }
         
-        public void OpenWindow(string uiWindowName)
+        public async Task OpenWindowAsync(string uiWindowName)
         {
-            CloseCurrentWindow();
+            await CloseCurrentWindowAsync();
 
             if (UIWindows.TryGetValue(uiWindowName, out var window))
             {
                 _openWindow = window;
-                window.PlayOpenAnimation();
+                await window.OpenWindowAsync();
             }
             else
             {
@@ -61,7 +69,11 @@ namespace UI_Manager
         
         public void CloseCurrentWindow()
         {
-            if(_openWindow) _openWindow.PlayCloseAnimation();
+            if(_openWindow) _openWindow.CloseWindowAsync();
+        }
+        public async Task CloseCurrentWindowAsync()
+        {
+            if(_openWindow) await _openWindow.CloseWindowAsync();
         }
     }
 }
