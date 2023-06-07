@@ -1,17 +1,29 @@
+using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace UI_Manager
 {
+    [RequireComponent(typeof(UIDocument))]
     public abstract class UIWindow : MonoBehaviour
     {
-        public static string WindowName;
+        public string TypeName;
         
-        [SerializeField] private UIDocument uiDocument;
+        [SerializeField] protected UIDocument uiDocument;
+
+        protected virtual void OnEnable()
+        {
+            RegisterCallback();
+        }
+
+        private void OnValidate()
+        {
+            TypeName = GetType().Name;
+        }
+
         private void Awake()
         {
-            WindowName = GetType().Name;
-            
             var uiManager = GetComponentInParent<UIManager>();
             
             if(uiManager) uiManager.UIWindows.Add(GetType().Name,this);
@@ -28,8 +40,23 @@ namespace UI_Manager
             }
         }
 
-        public abstract void PlayOpenAnimation();
-        public abstract void PlayCloseAnimation();
+        public void EnableUI()
+        {
+            uiDocument.enabled = true;
+            this.enabled = true;
+        }
+
+        public void DisableUI()
+        {
+            uiDocument.enabled = false;
+            this.enabled = false;
+        }
+
+        public virtual void RegisterCallback() { }
+
+        public abstract Task OpenWindowAsync();
+        public abstract Task CloseWindowAsync();
+
         
 
     }
