@@ -1,26 +1,20 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class SerializableDictionary<TKey,TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
 {
-    [SerializeField] protected TKey defaultKey;
-    [SerializeField] protected TValue defaultValue;
-
-    [SerializeField]
-    private List<TKey> keys = new List<TKey>();
-
-    [SerializeField]
-    private List<TValue> values = new List<TValue>();
-
-    private bool isTyping;
-
-
+    [SerializeField] protected TKey keyToAdd;
+    [SerializeField] protected TValue valueToAdd;
+    
+    [SerializeField] protected List<TKey> keys = new();
+    [SerializeField] protected List<TValue> values = new();
+    
     public virtual void OnBeforeSerialize()
     {
-        if(isTyping) return;
-
         keys.Clear();
         values.Clear();
         foreach (KeyValuePair<TKey,TValue> pair in this)
@@ -32,45 +26,37 @@ public class SerializableDictionary<TKey,TValue> : Dictionary<TKey, TValue>, ISe
 
     public virtual void OnAfterDeserialize()
     {
-        Clear();
+        this.Clear();
 
         while(keys.Count != values.Count)
         {
             if(keys.Count > values.Count)
             {
-                keys[^1] = defaultKey;
-                values.Add(defaultValue);
+                // if(keys.FindAll((key)=> Equals(key,keyToAdd)).Count > 1)
+                // {
+                //     keys.RemoveAt(keys.Count - 1);
+                //     break;
+                // }
+
+                keys[keys.Count - 1] = keyToAdd;
+                values.Add(valueToAdd);
             }
             else if (keys.Count < values.Count)
                 values.RemoveAt(values.Count - 1);
         }
 
-        try
+        for (int i = 0; i < keys.Count; i++)
         {
-            for (int i = 0; i < keys.Count; i++)
+            try
             {
-                Add(keys[i], values[i]);
+                this.Add(keys[i], values[i]);
             }
-
-            isTyping = false;
+            catch (Exception e)
+            {
+                Debug.LogError("Key Already Exists");
+            }
+            
         }
-        catch
-        {
-            isTyping = true;
-            Debug.LogError(
-                "There is a duplicate key in the dictionary.\nreplace the duplicate key to avoid unexpected behaviour.");
-        }
-
 
     }
-
 }
-
-[System.Serializable]
-public class Dictionary_GameObject_GameObject: SerializableDictionary<GameObject, GameObject> {}
-
-[System.Serializable]
-public class Dictionary_ints : SerializableDictionary<int, int>{}
-
-[System.Serializable]
-public class Dictionary_Int_Color : SerializableDictionary<int, Color> { }

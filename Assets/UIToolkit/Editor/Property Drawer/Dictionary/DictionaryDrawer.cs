@@ -1,37 +1,42 @@
-using UnityEditor;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.UIElements;
+using System.ComponentModel;
+using Codice.Client.BaseCommands;
 
 
-[CustomPropertyDrawer(typeof(Dictionary_ints))]
-[CustomPropertyDrawer(typeof(Dictionary_GameObject_GameObject))]
-[CustomPropertyDrawer(typeof(Dictionary_Int_Color))]
-//[CustomPropertyDrawer(typeof(NewMonoBehaviour))] This works also for properies
+[CustomPropertyDrawer(typeof(SerializableDictionary<,>))]
 public class DictionaryDrawer : PropertyDrawer
 {
-    readonly string path = "Assets/UIToolkit/Editor/Property Drawer/Dictionary/Dictionary.uxml";
-
     public override VisualElement CreatePropertyGUI(SerializedProperty property)
     {
+        Debug.Log("CreatePropertyGUI");
+        // Create a new VisualElement to be the root of our inspector UI
+
         VisualElement myInspector = new VisualElement();
+        var vsTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UIToolkit/Editor/Property Drawer/Dictionary/Dictionary.uxml");
+        var drawer = vsTree.CloneTree(property.propertyPath);
 
-        var vsTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(path);
-        vsTree.CloneTree(myInspector);
-
-        var keysList = property.FindPropertyRelative("keys");
-
-        myInspector.Q<Button>("Add").clickable.clicked += () =>
+        drawer.Q<Button>("Add").clickable.clicked += () =>
         {
-            keysList.arraySize++;
+            var dictionary = property.FindPropertyRelative("keys");
+            dictionary.arraySize++;
             property.serializedObject.ApplyModifiedProperties();
         };
 
-        myInspector.Q<Button>("Remove").clickable.clicked += () =>
+        drawer.Q<Button>("Remove").clickable.clicked += () =>
         {
-            if(keysList.arraySize > 0) keysList.arraySize--;
+            var dictionary = property.FindPropertyRelative("keys");
+            dictionary.arraySize--;
             property.serializedObject.ApplyModifiedProperties();
         };
 
+        myInspector.Add(drawer);
+
+
+        // Return the finished inspector UI
         return myInspector;
+
+
     }
 }
